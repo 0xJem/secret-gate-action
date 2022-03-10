@@ -16,7 +16,7 @@ jobs:
       - name: Secret gate no secrets set
         uses: ./ # for testing the action from this repository
         with:
-          inputsToCheck: input1
+          inputs-to-check: input1
           failOnMissing: true
 
   failing-job-string:
@@ -31,7 +31,7 @@ jobs:
       - name: Secret gate no secrets set
         uses: ./ # for testing the action from this repository
         with:
-          inputsToCheck: "input1"
+          inputs-to-check: "input1"
           failOnMissing: true
 
   failing-job-multiple:
@@ -46,7 +46,7 @@ jobs:
       - name: Secret gate no secrets set
         uses: ./ # for testing the action from this repository
         with:
-          inputsToCheck: input1,input2
+          inputs-to-check: input1,input2
           failOnMissing: true
 
   continuing-job:
@@ -62,12 +62,12 @@ jobs:
         id: gateOne
         uses: ./ # for testing the action from this repository
         with:
-          inputsToCheck: input1
+          inputs-to-check: input1
       - name: Secret gate with secret set
         id: gateTwo
         uses: ./ # for testing the action from this repository
         with:
-          inputsToCheck: input1
+          inputs-to-check: input1
         env:
           input1: ${{ secrets.GITHUB_TOKEN }}
       - name: Result from gates

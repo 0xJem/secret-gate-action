@@ -1,7 +1,7 @@
 name: "Secret (input) gate"
 description: "Allows checking if some values are set and optionally fail if they arent."
 inputs:
-  inputsToCheck:
+  inputs-to-check:
     description: "comma separated list of inputs to check."
     required: true
   failOnMissing:

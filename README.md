@@ -6,7 +6,7 @@ Missing secrets can also be intentionally left out to not yet enable some deploy
 
 ## Inputs
 
-### `inputsToCheck`
+### `inputs-to-check`
 
 **Required** The inputs that need to be checked to have a value, comma separated.
 
@@ -27,8 +27,8 @@ The secret gate action below will fail, so the rest won't be tried, resulting in
 ```yml
 - uses: svrooij/secret-gate-action@v1
   with:
-    inputsToCheck: 'NPM_TOKEN'
-    failOnMissing: 'true'
+    inputs-to-check: "NPM_TOKEN"
+    failOnMissing: "true"
   env:
     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 - name: Semantic Release
@@ -49,7 +49,7 @@ If the workflow below would be in an repository that is forked, the Semantic Rel
 - uses: svrooij/secret-gate-action@v1
   id: mygate
   with:
-    inputsToCheck: 'NPM_TOKEN'
+    inputs-to-check: "NPM_TOKEN"
   env:
     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 - name: Semantic Release

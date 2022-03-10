@@ -1,15 +1,15 @@
 const core = require('@actions/core');
 
 try {
-  console.error("inputs " + core.getInput('inputsToCheck'));
+  console.error("inputs " + core.getInput('inputs-to-check'));
   console.error("fail " + core.getInput('failOnMissing'));
-  const inputsToCheck = core.getInput('inputsToCheck').split(',');
+  const inputsToCheck = core.getInput('inputs-to-check').split(',');
   const failOnMissing = core.getInput('failOnMissing') == 'true';
 
   let missingInputs = [];
 
   if (failOnMissing || (inputsToCheck.length === 0 || (inputsToCheck.length === 1 && inputsToCheck[0] === ''))) {
-    throw new Error(`'inputsToCheck' is missing, please include it in your workflow section 'with' as inputsToCheck: 'input1,input2,...'`)
+    throw new Error(`'inputs-to-check' is missing, please include it in your workflow section 'with' as inputs-to-check: 'input1,input2,...'`)
   }
 
   core.startGroup(`Checking ${inputsToCheck.length} inputs:`)
