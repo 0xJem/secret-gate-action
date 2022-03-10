@@ -49,6 +49,41 @@ jobs:
           inputsToCheck: input1,input2
           failOnMissing: true
 
+  success-job-string:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Secret gate no secrets set
+        uses: ./ # for testing the action from this repository
+        with:
+          inputsToCheck: "input1"
+          failOnMissing: true
+        env:
+          input1: foo
+
+  success-job-multiple:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Secret gate no secrets set
+        uses: ./ # for testing the action from this repository
+        with:
+          inputsToCheck: input1,input2
+          failOnMissing: true
+        env:
+          input1: foo
+          input2: bar
+
   continuing-job:
     runs-on: ubuntu-latest
     steps:
