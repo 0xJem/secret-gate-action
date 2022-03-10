@@ -14,7 +14,18 @@ jobs:
         with:
           inputsToCheck: input1
           failOnMissing: true
-  
+
+  failing-job-multiple:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Secret gate no secrets set
+        uses: ./ # for testing the action from this repository
+        with:
+          inputsToCheck: input1,input2
+          failOnMissing: true
+
   continuing-job:
     runs-on: ubuntu-latest
     steps:
