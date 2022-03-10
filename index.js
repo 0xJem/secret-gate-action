@@ -1,15 +1,13 @@
 const core = require('@actions/core');
 
 try {
-  console.error("inputs: " + core.getInput('inputsToCheck'));
   const inputsToCheck = core.getInput('inputsToCheck').split(',');
-  console.error("inputs processed: " + core.getInput('inputsToCheck'));
-  console.error("length: " + inputsToCheck.length);
   const failOnMissing = core.getInput('failOnMissing') == 'true';
 
   let missingInputs = [];
 
-  if (failOnMissing || (inputsToCheck.length === 0 || (inputsToCheck.length === 1 && inputsToCheck[0] === ''))) {
+  if (failOnMissing &&
+    (inputsToCheck.length === 0 || (inputsToCheck.length === 1 && inputsToCheck[0] === ''))) {
     throw new Error(`'inputsToCheck' is missing, please include it in your workflow section 'with' as inputsToCheck: 'input1,input2,...'`)
   }
 
