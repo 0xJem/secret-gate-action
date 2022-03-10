@@ -2,6 +2,7 @@ const core = require('@actions/core');
 
 try {
   console.error("inputs " + core.getInput('inputsToCheck'));
+  console.error("fail " + core.getInput('failOnMissing'));
   const inputsToCheck = core.getInput('inputsToCheck').split(',');
   const failOnMissing = core.getInput('failOnMissing') == 'true';
 
