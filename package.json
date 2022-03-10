@@ -6,7 +6,6 @@
   "scripts": {
     "build": "ncc build index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-    
   },
   "repository": {
     "type": "git",
@@ -25,7 +24,7 @@
   },
   "homepage": "https://github.com/svrooij/secret-gate-action#readme",
   "dependencies": {
-    "@actions/core": "^1.2.6"
+    "@actions/core": "^1.2.4"
   },
   "devDependencies": {
     "@zeit/ncc": "^0.22.3"
