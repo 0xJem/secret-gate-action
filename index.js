@@ -1,9 +1,10 @@
 const core = require('@actions/core');
 
 try {
-  console.error("inputs " + core.getInput('inputsToCheck'));
-  console.error("fail " + core.getInput('failOnMissing'));
+  console.error("inputs: " + core.getInput('inputsToCheck'));
   const inputsToCheck = core.getInput('inputsToCheck').split(',');
+  console.error("inputs processed: " + core.getInput('inputsToCheck'));
+  console.error("length: " + inputsToCheck.length);
   const failOnMissing = core.getInput('failOnMissing') == 'true';
 
   let missingInputs = [];
